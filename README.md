@@ -18,6 +18,13 @@ A complete **Catppuccin Mocha (Mauve accent)** desktop for **Ubuntu 24.04 / GNOM
 | Blur | **Blur My Shell** — overview + dock blur | [aunetx/blur-my-shell] |
 | Window corners | **Rounded Window Corners Reborn** | [fxgn/rounded-window-corners] |
 | Open/Close FX | **Burn-My-Windows** — glide on open, fire on close | [Schneegans/Burn-My-Windows] |
+| Wobbly windows | **Compiz windows effect** — same jelly drag as the KDE wobbly windows | [hermes83/compiz-windows-effect] |
+| Minimize FX | **Compiz-alike Magic Lamp** — genie minimize to the dock | [hermes83/compiz-alike-magic-lamp-effect] |
+| Workspace cube | **Desktop Cube** — 4 fixed workspaces on a 3D cube | [Schneegans/Desktop-Cube] |
+| Media controls | **Media Controls** in the top bar (player + track like the KDE panel) | [cliffniff/media-controls] |
+| Peek desktop | Bottom-right hot corner → show desktop via **Custom Hot Corners Extended** | [G-dH/custom-hot-corners-extended] |
+| Monitors | **Vitals** in-panel CPU / RAM / net-speed (netspeed-plasmoid stand-in) | pre-installed ext, configured |
+| Dropdown terminal | **ddterm** (Yakuake stand-in) — full Mocha palette, 88% opacity | pre-installed ext, configured |
 | Wallpaper | 8 walls from walls-catppuccin-mocha on a native 30-min slideshow | [orangci/walls-catppuccin-mocha] |
 | Fonts | Inter (UI) + CaskaydiaCove Nerd Font (mono) | [rsms/inter] |
 | Terminal | Ghostty `catppuccin-mocha` (opacity + blur kept) | built-in theme |
@@ -100,6 +107,11 @@ My own scripts and configs: MIT. Third-party themes keep their upstream licenses
 [vinceliuice/Tela-circle-icon-theme]: https://github.com/vinceliuice/Tela-circle-icon-theme
 [neuromorph/openbar]: https://github.com/neuromorph/openbar
 [tuxor1337/hidetopbar]: https://gitlab.gnome.org/tuxor1337/hidetopbar
+[hermes83/compiz-windows-effect]: https://github.com/hermes83/compiz-windows-effect
+[hermes83/compiz-alike-magic-lamp-effect]: https://github.com/hermes83/compiz-alike-magic-lamp-effect
+[Schneegans/Desktop-Cube]: https://github.com/Schneegans/Desktop-Cube
+[cliffniff/media-controls]: https://github.com/sakithb/media-controls
+[G-dH/custom-hot-corners-extended]: https://github.com/G-dH/custom-hot-corners-extended
 [aunetx/blur-my-shell]: https://github.com/aunetx/blur-my-shell
 [fxgn/rounded-window-corners]: https://github.com/flexagoon/rounded-window-corners
 [Schneegans/Burn-My-Windows]: https://github.com/Schneegans/Burn-My-Windows

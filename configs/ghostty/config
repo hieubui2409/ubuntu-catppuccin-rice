@@ -20,7 +20,7 @@ theme = catppuccin-mocha
 # Fallback an toàn luôn có: catppuccin-mocha
 
 # --- Cửa sổ & nền ---
-background-opacity = 0.96
+background-opacity = 0.88
 # background-blur: blur nền (Wayland/GNOME hỗ trợ) — field đúng là background-blur, KHÔNG phải background-blur-radius
 background-blur = 20
 window-padding-x = 8

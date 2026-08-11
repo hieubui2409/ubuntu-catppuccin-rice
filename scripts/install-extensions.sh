@@ -15,6 +15,11 @@ UUIDS=(
   "rounded-window-corners@fxgn"
   "user-theme@gnome-shell-extensions.gcampax.github.com"
   "hidetopbar@mathieu.bidon.ca"
+  "compiz-windows-effect@hermes83.github.com"
+  "compiz-alike-magic-lamp-effect@hermes83.github.com"
+  "desktop-cube@schneegans.github.com"
+  "mediacontrols@cliffniff.github.com"
+  "custom-hot-corners-extended@G-dH.github.com"
 )
 
 for uuid in "${UUIDS[@]}"; do
@@ -24,7 +29,7 @@ for uuid in "${UUIDS[@]}"; do
   fi
   log "Tải $uuid..."
   info=$(curl -fsSL "https://extensions.gnome.org/extension-info/?uuid=${uuid}&shell_version=${SHELL_VER}")
-  dl=$(echo "$info" | python3 -c "import sys,json; print(json.load(sys.stdin).get('download_url',''))" 2>/dev/null)
+  dl=$(echo "$info" | python3 -c "import sys,json; print(json.loads(sys.stdin.read(), strict=False).get('download_url',''))" 2>/dev/null)
   if [ -z "$dl" ]; then
     log "  !! Không tìm thấy bản cho GNOME $SHELL_VER: $uuid"
     continue
