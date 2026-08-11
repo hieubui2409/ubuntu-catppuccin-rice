@@ -1,0 +1,5 @@
+# Backup cá nhân — KHÔNG commit (chứa dconf dump / settings riêng tư)
+backups/
+
+# Tarball bên thứ ba — tải lại bằng scripts/fetch-assets.sh
+assets/*.tar.gz

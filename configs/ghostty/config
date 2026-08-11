@@ -1,0 +1,58 @@
+# ~/.config/ghostty/config — starter cho Ubuntu 24.04 (Wayland/GNOME, Intel Arc iGPU)
+# Ghostty đẹp/ngon ngay cả khi KHÔNG có file này; đây chỉ là tinh chỉnh hợp setup của bạn.
+# Áp dụng: copy về ~/.config/ghostty/config rồi Ctrl+Shift+, (reload) hoặc mở cửa sổ mới.
+# Liệt kê theme có sẵn:  ghostty +list-themes      | Liệt kê font:  ghostty +list-fonts
+# LƯU Ý: Ghostty KHÔNG hỗ trợ comment cùng dòng với value — comment phải nằm trên dòng riêng.
+
+# --- Font (bạn đã cài CaskaydiaCove + FiraCode Nerd Font) ---
+font-family = "CaskaydiaCove Nerd Font"
+# Nếu tên trên không nhận, thử "CaskaydiaCove NF" hoặc "FiraCode Nerd Font" (chạy: ghostty +list-fonts | grep -i caskaydia)
+font-size = 12
+# font-feature: calt/liga bật ligature (FiraCode/Caskaydia hỗ trợ)
+font-feature = calt
+font-feature = liga
+# adjust-cell-height: giãn dòng nhẹ cho dễ đọc
+adjust-cell-height = 8%
+
+# --- Theme (khớp Tokyo Night bạn đang dùng trong fish) ---
+theme = catppuccin-mocha
+# Nếu tên này không có, chạy `ghostty +list-themes | grep -i tokyo` rồi thay (vd "tokyonight", "TokyoNight Storm").
+# Fallback an toàn luôn có: catppuccin-mocha
+
+# --- Cửa sổ & nền ---
+background-opacity = 0.96
+# background-blur: blur nền (Wayland/GNOME hỗ trợ) — field đúng là background-blur, KHÔNG phải background-blur-radius
+background-blur = 20
+window-padding-x = 8
+window-padding-y = 6
+window-padding-balance = true
+window-decoration = true
+# gtk-titlebar: giữ thanh tiêu đề GNOME; đặt false nếu thích gọn
+gtk-titlebar = true
+
+# --- Con trỏ & chuột ---
+cursor-style = bar
+cursor-style-blink = true
+mouse-hide-while-typing = true
+
+# --- Clipboard / chọn ---
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+# clipboard-paste-protection: cảnh báo khi dán lệnh nguy hiểm (có xuống dòng)
+clipboard-paste-protection = true
+
+# --- Shell integration (Ghostty tự phát hiện zsh/bash/fish) ---
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+# -> bật: nhảy giữa prompt (jump-to-prompt), tô vùng lệnh, tự set tiêu đề, sudo an toàn.
+
+# --- Scrollback & hiệu năng ---
+# scrollback-limit ~10M dòng (RAM bạn 30GB, thoải mái)
+scrollback-limit = 10000000
+confirm-close-surface = false
+
+# --- Vài keybind tiện (tùy chọn) ---
+keybind = ctrl+shift+r=reload_config
+keybind = ctrl+shift+enter=toggle_fullscreen
+# Mở zellij nhanh thì giữ Ctrl+N ở phía shell (bạn đã bind) — đừng bind trùng ở đây.

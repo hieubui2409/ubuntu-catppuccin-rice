@@ -1,0 +1,13 @@
+{
+    // Catppuccin Mocha Mauve — ubuntu-catppuccin-rice
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "catppuccin.accentColor": "mauve",
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'JetBrainsMono Nerd Font', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font Mono'",
+    "window.titleBarStyle": "custom",
+    "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+    "window.autoDetectColorScheme": false
+}
