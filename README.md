@@ -13,6 +13,7 @@ A complete **Catppuccin Mocha (Mauve accent)** desktop for **Ubuntu 24.04 / GNOM
 | Icons | Tela-circle purple dark | [vinceliuice/Tela-circle-icon-theme] |
 | Cursors | Catppuccin Mocha Mauve | [catppuccin/cursors] |
 | Top panel | **Open Bar** — floating rounded bar, Mocha base, mauve accents, styled menus | [neuromorph/openbar] |
+| Panel auto-hide | **Hide Top Bar** — intellihide (hides when a window touches it), reveal on pressure/overview | [tuxor1337/hidetopbar] |
 | Dock | Dash-to-Dock bottom floating, Mocha background, mauve running dots + blur | built-in ext + Blur My Shell |
 | Blur | **Blur My Shell** — overview + dock blur | [aunetx/blur-my-shell] |
 | Window corners | **Rounded Window Corners Reborn** | [fxgn/rounded-window-corners] |
@@ -46,7 +47,7 @@ Everything user-side is reversible; system-side goes through backups + `update-a
 # 1. Base themes: GTK, icons, cursors, Inter font, wallpapers, btop/fastfetch
 ./scripts/install-base-themes.sh
 
-# 2. GNOME extensions: Blur My Shell, Burn My Windows, Open Bar, rounded corners, User Themes
+# 2. GNOME extensions: Blur My Shell, Burn My Windows, Open Bar, rounded corners, User Themes, Hide Top Bar
 ./scripts/install-extensions.sh
 
 # 3. Apply everything: dconf, dock, panel, wallpaper slideshow, GTK4 links, Flatpak overrides
@@ -98,6 +99,7 @@ My own scripts and configs: MIT. Third-party themes keep their upstream licenses
 [catppuccin/plymouth]: https://github.com/catppuccin/plymouth
 [vinceliuice/Tela-circle-icon-theme]: https://github.com/vinceliuice/Tela-circle-icon-theme
 [neuromorph/openbar]: https://github.com/neuromorph/openbar
+[tuxor1337/hidetopbar]: https://gitlab.gnome.org/tuxor1337/hidetopbar
 [aunetx/blur-my-shell]: https://github.com/aunetx/blur-my-shell
 [fxgn/rounded-window-corners]: https://github.com/flexagoon/rounded-window-corners
 [Schneegans/Burn-My-Windows]: https://github.com/Schneegans/Burn-My-Windows

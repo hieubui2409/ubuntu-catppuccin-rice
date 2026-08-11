@@ -14,6 +14,7 @@ UUIDS=(
   "openbar@neuromorph"
   "rounded-window-corners@fxgn"
   "user-theme@gnome-shell-extensions.gcampax.github.com"
+  "hidetopbar@mathieu.bidon.ca"
 )
 
 for uuid in "${UUIDS[@]}"; do
