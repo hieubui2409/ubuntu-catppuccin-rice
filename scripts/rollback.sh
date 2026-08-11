@@ -49,9 +49,20 @@ done
 
 # 3. Gỡ file cấu hình do rice tạo mới (không có trong backup nghĩa là trước đó chưa tồn tại)
 for f in "$HOME/.config/fastfetch/config.jsonc" "$HOME/.config/btop/themes/catppuccin_mocha.theme" \
-         "$HOME/.config/tmux/tmux.conf" "$HOME/.zsh-catppuccin-rice.zsh"; do
+         "$HOME/.config/tmux/tmux.conf" "$HOME/.zsh-catppuccin-rice.zsh" \
+         "$HOME/.config/kdeglobals" \
+         "$HOME/.local/share/color-schemes/CatppuccinMochaMauve.colors" \
+         "$HOME/.local/share/org.kde.syntax-highlighting/themes/catppuccin-mocha.theme"; do
   [ -f "$BK/configs/$(basename "$f")" ] || rm -f "$f" 2>/dev/null
 done
+
+# Kate — trả về theme mặc định (katerc tồn tại từ trước nên chỉ reset các key rice đã sửa)
+if command -v kwriteconfig5 >/dev/null; then
+  kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Color Theme" "Breeze Light"
+  kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Auto Color Theme Selection" "true"
+  kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Font" "monospace,11,-1,2,50,0,0,0,0,0"
+  echo "✓ Kate khôi phục"
+fi
 
 if [ "$SYSTEM" -eq 1 ]; then
   [ "$(id -u)" -eq 0 ] || { echo "--system cần sudo"; exit 1; }

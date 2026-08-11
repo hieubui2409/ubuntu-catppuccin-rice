@@ -73,6 +73,15 @@ if command -v kate >/dev/null; then
     kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Auto Color Theme Selection" "false"
     kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Font" "CaskaydiaCove Nerd Font Mono,12,-1,2,50,0,0,0,0,0"
   fi
+  # UI xung quanh (menu/toolbar) của app KF5 đọc màu từ kdeglobals
+  mkdir -p "$HOME/.local/share/color-schemes"
+  cp "$REPO_DIR/configs/kate/CatppuccinMochaMauve.colors" "$HOME/.local/share/color-schemes/"
+  if [ ! -f "$HOME/.config/kdeglobals" ]; then
+    { sed '0,/\[General\]/s//[General]\nColorScheme=CatppuccinMochaMauve/' \
+        "$REPO_DIR/configs/kate/CatppuccinMochaMauve.colors"
+      printf '\n[Icons]\nTheme=Tela-circle-purple-dark\n'
+    } > "$HOME/.config/kdeglobals"
+  fi
   log "Kate OK"
 fi
 
