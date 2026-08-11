@@ -31,6 +31,7 @@ A complete **Catppuccin Mocha (Mauve accent)** desktop for **Ubuntu 24.04 / GNOM
 | Shell prompt | Powerlevel10k Catppuccin overrides (zsh) | `configs/zsh/` |
 | CLI | fzf, eza, grep colors, bat, btop, fastfetch, tmux — all Mocha | `configs/` |
 | Editor | VS Code Catppuccin theme + icons, Nerd Font ligatures | `configs/vscode/` |
+| Editor 2 | Kate — Catppuccin Mocha (upstream KDE theme file) + Nerd Font | `configs/kate/` |
 | Browsers | Catppuccin Mocha for Chrome / Edge / Firefox (one-click) | `scripts/setup-browsers.sh` |
 | Flatpak | GTK theme / icons / cursor forwarded via overrides | scripted |
 | GDM login | Catppuccin wallpaper via a **safe `update-alternatives` gresource** (Yaru untouched) | `scripts/install-system.sh` |

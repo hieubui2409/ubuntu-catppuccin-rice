@@ -64,7 +64,19 @@ mkdir -p "$HOME/.config/fastfetch"
 cp "$REPO_DIR/configs/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
 log "fastfetch OK"
 
-# 7. tmux (chưa có config trước đó — backup rollback sẽ xoá nếu cần)
+# 7. Kate — theme Catppuccin Mocha (file theme chính chủ từ KDE upstream) + Nerd Font
+if command -v kate >/dev/null; then
+  mkdir -p "$HOME/.local/share/org.kde.syntax-highlighting/themes"
+  cp "$REPO_DIR/configs/kate/catppuccin-mocha.theme" "$HOME/.local/share/org.kde.syntax-highlighting/themes/"
+  if command -v kwriteconfig5 >/dev/null; then
+    kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Color Theme" "Catppuccin Mocha"
+    kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Auto Color Theme Selection" "false"
+    kwriteconfig5 --file katerc --group "KTextEditor Renderer" --key "Font" "CaskaydiaCove Nerd Font Mono,12,-1,2,50,0,0,0,0,0"
+  fi
+  log "Kate OK"
+fi
+
+# 8. tmux (chưa có config trước đó — backup rollback sẽ xoá nếu cần)
 mkdir -p "$HOME/.config/tmux"
 cp "$REPO_DIR/configs/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 log "tmux OK"
