@@ -15,7 +15,7 @@ font-feature = liga
 adjust-cell-height = 8%
 
 # --- Theme (khớp Tokyo Night bạn đang dùng trong fish) ---
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 # Nếu tên này không có, chạy `ghostty +list-themes | grep -i tokyo` rồi thay (vd "tokyonight", "TokyoNight Storm").
 # Fallback an toàn luôn có: catppuccin-mocha
 

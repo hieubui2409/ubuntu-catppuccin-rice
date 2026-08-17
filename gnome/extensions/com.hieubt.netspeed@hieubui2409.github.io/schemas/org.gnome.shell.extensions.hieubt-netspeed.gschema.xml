@@ -24,5 +24,15 @@
       <summary>Upload colour</summary>
       <description>Catppuccin teal by default.</description>
     </key>
+    <key name="clock-format-enabled" type="b">
+      <default>true</default>
+      <summary>Reformat the panel clock</summary>
+      <description>GNOME hardcodes "%a %b %e", so a locale alone cannot produce ISO dates.</description>
+    </key>
+    <key name="clock-format" type="s">
+      <default>'%Y-%m-%d  %H:%M:%S'</default>
+      <summary>Clock format</summary>
+      <description>GLib.DateTime.format() pattern for the top bar clock.</description>
+    </key>
   </schema>
 </schemalist>

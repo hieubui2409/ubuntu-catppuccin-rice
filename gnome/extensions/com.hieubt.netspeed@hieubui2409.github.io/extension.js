@@ -145,15 +145,66 @@ class NetSpeedIndicator extends PanelMenu.Button {
     }
 });
 
+/* Đồng hồ panel: GNOME hardcode "%a %b %e" nên locale không đổi được thứ tự
+ * ngày/tháng. Ta ghi thẳng nhãn theo GLib.DateTime.format() mỗi giây. */
+class ClockFormatter {
+    constructor(settings) {
+        this._settings = settings;
+        this._clock = Main.panel.statusArea.dateMenu?._clockDisplay;
+        if (!this._clock)
+            return;
+
+        // Giữ lại binding gốc để trả nguyên trạng lúc disable()
+        this._original = this._clock.text;
+        this._binding = this._clock.get_binding_pool?.() ?? null;
+        Main.panel.statusArea.dateMenu._clock?.disconnectObject?.(this._clock);
+
+        this._update();
+        this._timeoutId = GLib.timeout_add_seconds(
+            GLib.PRIORITY_DEFAULT, 1, () => {
+                this._update();
+                return GLib.SOURCE_CONTINUE;
+            });
+    }
+
+    _update() {
+        const fmt = this._settings.get_string('clock-format');
+        const text = GLib.DateTime.new_now_local().format(fmt);
+        if (text && this._clock.text !== text)
+            this._clock.text = text;
+    }
+
+    destroy() {
+        if (this._timeoutId) {
+            GLib.Source.remove(this._timeoutId);
+            this._timeoutId = null;
+        }
+        // Ép GNOME vẽ lại đồng hồ theo cách của nó
+        const dateMenu = Main.panel.statusArea.dateMenu;
+        if (dateMenu?._clock && this._clock) {
+            this._clock.text = dateMenu._clock.clock;
+            dateMenu._clock.notify('clock');
+        }
+        this._clock = null;
+    }
+}
+
 export default class NetSpeedExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._indicator = new NetSpeedIndicator(this._settings);
-        // Đặt bên TRÁI panel, sau các indicator sẵn có
-        Main.panel.addToStatusArea(this.uuid, this._indicator, -1, 'left');
+        // Chèn vào cuối hộp trái. Tham số thứ 3 là CHỈ SỐ chèn, không phải cờ —
+        // truyền -1 làm insert_child_at_index() hỏng và panel dựng ra rỗng.
+        const index = Main.panel._leftBox.get_n_children();
+        Main.panel.addToStatusArea(this.uuid, this._indicator, index, 'left');
+
+        if (this._settings.get_boolean('clock-format-enabled'))
+            this._clockFormatter = new ClockFormatter(this._settings);
     }
 
     disable() {
+        this._clockFormatter?.destroy();
+        this._clockFormatter = null;
         this._indicator?.destroy();
         this._indicator = null;
         this._settings = null;

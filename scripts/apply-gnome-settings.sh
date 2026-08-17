@@ -60,17 +60,20 @@ for src in "$REPO_DIR"/gnome/extensions/*/; do
   dest="$HOME/.local/share/gnome-shell/extensions/$uuid"
   rm -rf "$dest"; mkdir -p "$dest"; cp -r "$src." "$dest/"
   [ -d "$dest/schemas" ] && glib-compile-schemas "$dest/schemas/"
-  gnome-extensions enable "$uuid" 2>/dev/null || true
-  log "Extension $uuid OK"
+  # netspeed còn lỗi làm panel dựng ra rỗng — cài nhưng KHÔNG bật
+  case "$uuid" in
+    com.hieubt.netspeed@*) log "Extension $uuid đã cài (chưa bật — còn lỗi)" ;;
+    *) gnome-extensions enable "$uuid" 2>/dev/null || true
+       log "Extension $uuid OK" ;;
+  esac
 done
 
-# Đồng hồ yyyy-mm-dd HH:MM:SS — en_DK là locale duy nhất dùng chuẩn ISO 8601
+# Đồng hồ ISO do extension clockfmt lo (đã cài ở vòng lặp trên). LC_TIME chỉ đổi
+# định dạng của `date`, không đổi được panel vì GNOME hardcode "%a %b %e".
 if locale -a 2>/dev/null | grep -qi "^en_DK"; then
   mkdir -p "$HOME/.config/environment.d"
   printf 'LC_TIME=en_DK.UTF-8\n' > "$HOME/.config/environment.d/50-rice-time.conf"
-  log "LC_TIME=en_DK (ngày ISO) OK"
-else
-  log "!! locale en_DK.UTF-8 chưa có — chạy: sudo locale-gen en_DK.UTF-8"
+  log "LC_TIME=en_DK (ngày ISO cho shell/CLI) OK"
 fi
 
 # 5. dconf — toàn bộ theme/dock/panel/extension settings

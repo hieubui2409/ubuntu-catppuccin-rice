@@ -1,0 +1,7 @@
+{
+  "uuid": "clockfmt@hieubui2409.github.io",
+  "name": "Clock Format (ISO)",
+  "description": "Rewrites the top bar clock as yyyy-mm-dd HH:MM:SS. GNOME hardcodes \"%a %b %e\", so no locale can produce ISO dates.",
+  "shell-version": ["45", "46", "47", "48"],
+  "version": 1
+}
