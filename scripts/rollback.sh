@@ -51,10 +51,18 @@ done
 for f in "$HOME/.config/fastfetch/config.jsonc" "$HOME/.config/btop/themes/catppuccin_mocha.theme" \
          "$HOME/.config/tmux/tmux.conf" "$HOME/.zsh-catppuccin-rice.zsh" \
          "$HOME/.config/kdeglobals" \
+         "$HOME/.config/environment.d/50-rice-time.conf" \
          "$HOME/.local/share/color-schemes/CatppuccinMochaMauve.colors" \
          "$HOME/.local/share/org.kde.syntax-highlighting/themes/catppuccin-mocha.theme"; do
   [ -f "$BK/configs/$(basename "$f")" ] || rm -f "$f" 2>/dev/null
 done
+
+# Extension tự viết — gỡ hẳn khỏi ~/.local/share
+for d in "$REPO_DIR"/gnome/extensions/*/; do
+  [ -d "$d" ] || continue
+  rm -rf "$HOME/.local/share/gnome-shell/extensions/$(basename "$d")"
+done
+echo "✓ Extension tự viết đã gỡ"
 
 # Kate — trả về theme mặc định (katerc tồn tại từ trước nên chỉ reset các key rice đã sửa)
 if command -v kwriteconfig5 >/dev/null; then

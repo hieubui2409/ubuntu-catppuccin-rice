@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.hieubt-netspeed"
+          path="/org/gnome/shell/extensions/hieubt-netspeed/">
+    <key name="font-size" type="i">
+      <default>10</default>
+      <range min="6" max="20"/>
+      <summary>Font size</summary>
+      <description>Font size in pixels for both speed rows.</description>
+    </key>
+    <key name="label-width" type="i">
+      <default>58</default>
+      <range min="30" max="140"/>
+      <summary>Label width</summary>
+      <description>Fixed pixel width of each row so the panel never jitters.</description>
+    </key>
+    <key name="download-color" type="s">
+      <default>'#fab387'</default>
+      <summary>Download colour</summary>
+      <description>Catppuccin peach by default.</description>
+    </key>
+    <key name="upload-color" type="s">
+      <default>'#94e2d5'</default>
+      <summary>Upload colour</summary>
+      <description>Catppuccin teal by default.</description>
+    </key>
+  </schema>
+</schemalist>

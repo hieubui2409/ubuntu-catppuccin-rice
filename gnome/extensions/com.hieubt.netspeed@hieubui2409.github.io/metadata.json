@@ -1,0 +1,9 @@
+{
+  "uuid": "com.hieubt.netspeed@hieubui2409.github.io",
+  "name": "Net Speed (Catppuccin)",
+  "description": "Fixed-width network download/upload speed indicator for the top bar. GJS port of the com.hieubt.netspeed Plasma applet — same two-row ↓/↑ layout, peach/teal Catppuccin colors and non-jittering width.",
+  "shell-version": ["45", "46", "47", "48"],
+  "url": "https://github.com/hieubui2409/ubuntu-catppuccin-rice",
+  "settings-schema": "org.gnome.shell.extensions.hieubt-netspeed",
+  "version": 1
+}

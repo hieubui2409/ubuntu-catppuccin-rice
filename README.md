@@ -23,7 +23,9 @@ A complete **Catppuccin Mocha (Mauve accent)** desktop for **Ubuntu 24.04 / GNOM
 | Workspace cube | **Desktop Cube** — 4 fixed workspaces on a 3D cube | [Schneegans/Desktop-Cube] |
 | Media controls | **Media Controls** in the top bar (player + track like the KDE panel) | [cliffniff/media-controls] |
 | Peek desktop | Bottom-right hot corner → show desktop via **Custom Hot Corners Extended** | [G-dH/custom-hot-corners-extended] |
-| Monitors | **Vitals** in-panel CPU / RAM / net-speed (netspeed-plasmoid stand-in) | pre-installed ext, configured |
+| Net speed | **com.hieubt.netspeed** — my own GJS extension, a port of the Plasma applet: fixed-width ↓/↑ rows, peach/teal, left side of the panel | `gnome/extensions/` |
+| Monitors | **Vitals** in-panel CPU / RAM | pre-installed ext, configured |
+| Clock | `yyyy-mm-dd HH:MM:SS` via `LC_TIME=en_DK` (ISO 8601) + seconds enabled | scripted |
 | Dropdown terminal | **ddterm** (Yakuake stand-in) — full Mocha palette, 88% opacity | pre-installed ext, configured |
 | Wallpaper | 8 walls from walls-catppuccin-mocha on a native 30-min slideshow | [orangci/walls-catppuccin-mocha] |
 | Fonts | Inter (UI) + CaskaydiaCove Nerd Font (mono) | [rsms/inter] |
@@ -40,7 +42,8 @@ A complete **Catppuccin Mocha (Mauve accent)** desktop for **Ubuntu 24.04 / GNOM
 ## 📦 Layout
 
 ```
-gnome/       dconf-rice.ini (all GNOME + extension settings), Burn-My-Windows profiles
+gnome/       dconf-rice.ini (all GNOME + extension settings), Burn-My-Windows profiles,
+             extensions/com.hieubt.netspeed (my own GJS net-speed indicator)
 configs/     ghostty, zsh (p10k overrides + CLI colors), bat, btop, fastfetch, tmux, vscode
 wallpapers/  8 selected Catppuccin Mocha walls
 scripts/     install-*.sh (user-space), install-system.sh (sudo), rollback.sh, fetch-assets.sh

@@ -1,0 +1,10 @@
+/* Net Speed (Catppuccin) — hai dòng sát nhau, gọn trong panel cao 34px */
+
+.hieubt-netspeed-box {
+  spacing: -3px;
+  padding: 0 4px;
+}
+
+.hieubt-netspeed-label {
+  font-weight: bold;
+}

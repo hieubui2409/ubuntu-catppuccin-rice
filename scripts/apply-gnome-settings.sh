@@ -53,10 +53,30 @@ dconf write /org/gnome/shell/extensions/burn-my-windows/active-profile \
   "'$BMW_DIR/rice-aura-glow.conf'"
 log "Burn-My-Windows Aura Glow OK"
 
-# 4. dconf — toàn bộ theme/dock/panel/extension settings
+# 4. Extension tự viết (netspeed) + LC_TIME kiểu ISO cho đồng hồ panel
+for src in "$REPO_DIR"/gnome/extensions/*/; do
+  [ -d "$src" ] || continue
+  uuid=$(basename "$src")
+  dest="$HOME/.local/share/gnome-shell/extensions/$uuid"
+  rm -rf "$dest"; mkdir -p "$dest"; cp -r "$src." "$dest/"
+  [ -d "$dest/schemas" ] && glib-compile-schemas "$dest/schemas/"
+  gnome-extensions enable "$uuid" 2>/dev/null || true
+  log "Extension $uuid OK"
+done
+
+# Đồng hồ yyyy-mm-dd HH:MM:SS — en_DK là locale duy nhất dùng chuẩn ISO 8601
+if locale -a 2>/dev/null | grep -qi "^en_DK"; then
+  mkdir -p "$HOME/.config/environment.d"
+  printf 'LC_TIME=en_DK.UTF-8\n' > "$HOME/.config/environment.d/50-rice-time.conf"
+  log "LC_TIME=en_DK (ngày ISO) OK"
+else
+  log "!! locale en_DK.UTF-8 chưa có — chạy: sudo locale-gen en_DK.UTF-8"
+fi
+
+# 5. dconf — toàn bộ theme/dock/panel/extension settings
 dconf load / < "$REPO_DIR/gnome/dconf-rice.ini" && log "dconf load OK"
 
-# 5. Flatpak apps dùng chung theme + icons + cursor
+# 6. Flatpak apps dùng chung theme + icons + cursor
 if command -v flatpak >/dev/null; then
   flatpak override --user \
     --filesystem="$HOME/.themes" \
@@ -68,7 +88,7 @@ if command -v flatpak >/dev/null; then
     && log "Flatpak override OK"
 fi
 
-# 6. GTK3 settings.ini (một số app đọc trực tiếp)
+# 7. GTK3 settings.ini (một số app đọc trực tiếp)
 mkdir -p "$HOME/.config/gtk-3.0"
 cat > "$HOME/.config/gtk-3.0/settings.ini" <<EOF
 [Settings]
