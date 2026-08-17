@@ -17,7 +17,7 @@ A complete **Catppuccin Mocha (Mauve accent)** desktop for **Ubuntu 24.04 / GNOM
 | Dock | Dash-to-Dock bottom floating, Mocha background, mauve running dots + blur | built-in ext + Blur My Shell |
 | Blur | **Blur My Shell** — overview + dock blur | [aunetx/blur-my-shell] |
 | Window corners | **Rounded Window Corners Reborn** | [fxgn/rounded-window-corners] |
-| Open/Close FX | **Burn-My-Windows** — glide on open, fire on close | [Schneegans/Burn-My-Windows] |
+| Open/Close FX | **Burn-My-Windows** — Aura Glow on both open and close | [Schneegans/Burn-My-Windows] |
 | Wobbly windows | **Compiz windows effect** — same jelly drag as the KDE wobbly windows | [hermes83/compiz-windows-effect] |
 | Minimize FX | **Compiz-alike Magic Lamp** — genie minimize to the dock | [hermes83/compiz-alike-magic-lamp-effect] |
 | Workspace cube | **Desktop Cube** — 4 fixed workspaces on a 3D cube | [Schneegans/Desktop-Cube] |

@@ -44,10 +44,14 @@ if [ -d "$GTK4_SRC" ]; then
   log "GTK4/libadwaita link OK"
 fi
 
-# 3. Burn-My-Windows profiles (fire khi đóng, glide khi mở)
-mkdir -p "$HOME/.config/burn-my-windows/profiles"
-cp "$REPO_DIR"/gnome/burn-my-windows/*.conf "$HOME/.config/burn-my-windows/profiles/"
-log "Burn-My-Windows profiles OK"
+# 3. Burn-My-Windows — profile Aura Glow, áp cho CẢ mở lẫn đóng (animation-type=0)
+BMW_DIR="$HOME/.config/burn-my-windows/profiles"
+mkdir -p "$BMW_DIR"
+cp "$REPO_DIR"/gnome/burn-my-windows/*.conf "$BMW_DIR/"
+# v48 lưu active-profile bằng đường dẫn tuyệt đối
+dconf write /org/gnome/shell/extensions/burn-my-windows/active-profile \
+  "'$BMW_DIR/rice-aura-glow.conf'"
+log "Burn-My-Windows Aura Glow OK"
 
 # 4. dconf — toàn bộ theme/dock/panel/extension settings
 dconf load / < "$REPO_DIR/gnome/dconf-rice.ini" && log "dconf load OK"
